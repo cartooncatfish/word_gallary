@@ -1,1 +1,6 @@
 *.pyc
+
+
+# React
+app/react-tracks-client/node_modules/
+app/react-tracks-client/build/
