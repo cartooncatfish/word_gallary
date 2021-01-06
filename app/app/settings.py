@@ -68,6 +68,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:8000',
     'http://localhost:8080',
+    'https://word-gallery.s3-us-west-2.amazonaws.com',
 ]
 
 AUTHENTICATION_BACKENDS = [

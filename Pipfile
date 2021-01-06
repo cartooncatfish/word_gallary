@@ -7,10 +7,12 @@ verify_ssl = true
 autopep8 = "*"
 fabric = "*"
 awscli = "*"
+patchwork = "*"
 
 [packages]
 django = "*"
 graphene-django = "*"
+pyjwt = "==1.7.1"
 django-graphql-jwt = "*"
 django-cors-headers = "*"
 

@@ -1,30 +1,31 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import * as serviceWorker from "./serviceWorker";
-import { ApolloProvider, Query } from "react-apollo";
-import ApolloClient, { gql } from "apollo-boost";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import * as serviceWorker from './serviceWorker';
+import { ApolloProvider, Query } from 'react-apollo';
+import ApolloClient, { gql } from 'apollo-boost';
 
-import Root from "./Root";
-import Auth from "./components/Auth";
+import Root from './Root';
+import Auth from './components/Auth';
 
 const client = new ApolloClient({
-  uri: "http://localhost:8000/graphql/",
+  // uri: 'https://52.65.42.123/graphql/',
+  uri: 'http://localhost:8000/graphql/',
   fetchOptions: {
-    credentials: "include"
+    credentials: 'include',
   },
-  request: operation => {
-    const token = localStorage.getItem("authToken") || "";
+  request: (operation) => {
+    const token = localStorage.getItem('authToken') || '';
     operation.setContext({
       headers: {
-        Authorization: `JWT ${token}`
-      }
+        Authorization: `JWT ${token}`,
+      },
     });
   },
   clientState: {
     defaults: {
-      isLoggedIn: !!localStorage.getItem("authToken")
-    }
-  }
+      isLoggedIn: !!localStorage.getItem('authToken'),
+    },
+  },
 });
 
 const IS_LOGGED_IN_QUERY = gql`
@@ -39,7 +40,7 @@ ReactDOM.render(
       {({ data }) => (data.isLoggedIn ? <Root /> : <Auth />)}
     </Query>
   </ApolloProvider>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
